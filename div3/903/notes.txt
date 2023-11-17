@@ -1,0 +1,21 @@
+
+
+def solve():
+  ts = list(map(int, input().split()))
+  min_t = min(ts)
+  cut_count = 0
+  while(cut_count < 3):
+    for i in range(len(ts)):
+      if (ts[i] != min_t):
+        other_t = ts[i] - min_t
+        if (other_t < min_t):
+          return False
+        if (other_t != min_t):
+          ts.append(other_t)
+        cut_count += 1
+  for i in range(len(ts) - 1):
+    if (ts[i] != ts[i+1]):
+      return False
+  return True
+
+  
