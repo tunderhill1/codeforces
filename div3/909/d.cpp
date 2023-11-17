@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdlib.h> 
  
-int a[2 * 10 ^ 5];
-int b[2 * 10 ^ 5];
+int a[200000];
+double k[200000];
 
 void solve() {
   int n;
@@ -13,13 +13,15 @@ void solve() {
   scanf("%d", &n);
   for (int i = 0; i < n; i ++) {
     scanf("%d", &a[i]);
-    b[i] = log2(a[i]);
+    k[i] = log2(a[i]);
+    // printf("%d, %f\n", a[i], k[i]);
   }
 
   int count = 0;
   for (int i = 0; i < n; i ++) {
     for (int j = i + 1; j < n; j ++) {
-      if (a[j] + b[i] == a[i] + b[j]) {
+      if (a[j] + k[i] == a[i] + k[j]) {
+        // printf("aj: %d, ki: %f ai: %d kj: %f\n", a[j], k[i], a[i], k[j]);
         count++;
       }
     }
