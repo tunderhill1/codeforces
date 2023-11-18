@@ -3,24 +3,23 @@
 #include <string.h>
 #include <stdlib.h> 
 #include <map>
+#include <iostream>
+using namespace std;
 
 void solve() {
   int n;
-  scanf("%d", &n);
-  
-  int result = 0;
+  cin >> n;
 
-  printf("%lld\n", result);
+  
+
+  cout << output << "\n";
 }
 
 int main()
 {
-  int num_test_cases;
-  scanf("%d", &num_test_cases);
-
-  for (int test_case = 0; test_case < num_test_cases; test_case ++) {
-    solve();
-  }
+  int t;
+  cin >> t;
+  while(t --) solve();
 
   return 0;
 }
