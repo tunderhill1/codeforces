@@ -10,7 +10,12 @@ void solve() {
   scanf("%d", &amount_left);
   scanf("%d", &num_of_people);
 
-  double amount_per_person = amount_left / num_of_people;
+  double amount_per_person = double(amount_left) / num_of_people;
+  if (amount_per_person * num_of_people != amount_left){
+    printf("%f", amount_per_person);
+    printf("%d\n", (-1));
+    return;
+  }
 
   if (num_of_people % 2 == 1 && amount_left % num_of_people != 0) {
     printf("%d\n", (-1));
@@ -20,7 +25,8 @@ void solve() {
   std::set<int> seen;
   long cut_count = 0;
   const double double_num_of_people = (double) num_of_people;
-  while (amount_left % num_of_people != 0) {
+  int iterations = 0;
+  while (amount_left % num_of_people != 0 && iterations < 1000) {
     if (seen.contains(amount_left)) {
       printf("%d\n", (-1));
       return;
@@ -37,6 +43,10 @@ void solve() {
     //   printf("Too much");
     //   return;
     // }
+    iterations ++;
+  }
+  if (iterations == 1000) {
+    printf("Toooo much");
   }
 
   printf("%ld\n", cut_count);
