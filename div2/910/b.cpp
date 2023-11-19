@@ -20,7 +20,7 @@ typedef pair<int, int> pii;
 
 
 void solve() {
-  int n;
+  int n, x;
   cin >> n;
 
   vector<int> a(n);
@@ -28,15 +28,22 @@ void solve() {
     cin >> a[i];
   }
 
-  int last_ai = a[0];
+  int last_ai = a[n - 1];
   int op_count = 0;
-  for(auto i = a.begin(); i < a.end(); i++)
+  for(auto i = a.end() - 1; i >= a.begin(); i--)
 	{
-    if (*i < last_ai) {
+    if (*i > last_ai) {
       op_count ++;
-      *i = *i - last_ai;
-      a.insert(i, last_ai);
-      i ++;
+      // if (*i / 2 >= last_ai) {
+      //   x = *i / 2;
+      // } else {
+      //   x = 
+      // }
+      x = *i / 2;
+      *i = *i - x;
+      auto i_to_insert = i;
+      a.insert(i_to_insert, x);
+      // i = i_to_restore_to;
     }
     last_ai = *i;
 	}
