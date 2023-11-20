@@ -29,23 +29,23 @@ void solve() {
   }
 
   int last_ai = a[n - 1];
-  int op_count = 0;
-  for(auto i = a.end() - 1; i >= a.begin(); i--)
+  long long op_count = 0;
+  for(int i = n - 1; i >= 0; i--)
 	{
-    if (*i > last_ai) {
-      op_count ++;
-      // if (*i / 2 >= last_ai) {
-      //   x = *i / 2;
-      // } else {
-      //   x = 
+    if (a[i] > last_ai) {
+      // k = round up of a[i] / last_ai
+      int k = 1 + ((a[i] - 1) / last_ai);
+      x = a[i] / k;
+      op_count += k - 1;
+      // x = a[i] / 2;
+      // if (a[i] - x > last_ai) {
+      //   x = a[i] - last_ai;
       // }
-      x = *i / 2;
-      *i = *i - x;
-      auto i_to_insert = i;
-      a.insert(i_to_insert, x);
-      // i = i_to_restore_to;
+      a[i] = x;
+      // a.insert(a.begin() + i, x);
+      // i ++;
     }
-    last_ai = *i;
+    last_ai = a[i];
 	}
   
   cout << op_count << "\n";
