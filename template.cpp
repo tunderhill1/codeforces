@@ -14,6 +14,10 @@ using namespace std;
 #include <queue>
 #include <unordered_set>
 #include <random>
+#include <climits>
+
+typedef pair<int, int> pii;
+
 
 void solve() {
   int n;
